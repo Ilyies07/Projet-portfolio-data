@@ -12,37 +12,46 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">Mes projets</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+                aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
+
         <div class="collapse navbar-collapse" id="navbarScroll">
             <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;" id="projets">
+
+                <!-- Accueil -->
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="index.html">Acceuil</a>
+                    <a class="nav-link active" aria-current="page" href="index.html">Accueil</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="projet1.html">projet perso 1</a>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                       aria-expanded="false">
+                        Mes projets
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="projet1.html">Projet perso 1</a></li>
+                        <li><a class="dropdown-item" href="projet2.html">Projet perso 2</a></li>
+                        <li><a class="dropdown-item" href="projet3.html">Projet perso 3</a></li>
+                        <li><a class="dropdown-item" href="projet4.html">Projet perso 4</a></li>
+                    </ul>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="projet2.html">projet perso 2</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="projet3.html">projet perso 3</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="projet4.html">projet perso 4</a>
-                </li>
+
             </ul>
+
+            <!-- Barre de recherche -->
             <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
                 <button class="btn btn-outline-success" type="submit">Search</button>
             </form>
         </div>
     </div>
 </nav>
 
+
 <section class="container mt-5">
-    <h1 class="text-center mb-4">Bienvenue sur mes projets Data - LERHZAL Ilyies futur ingénieur en DATA/IA</h1>
+    <h2 class="text-center mb-4">Bienvenue sur mes projets Data - LERHZAL Ilyies futur ingénieur en Data/IA</h2>
     <p class="lead text-center">
         Ce site regroupe l’ensemble de mes travaux en analyse de données, SQL, visualisation et développement.
         Explore les différents projets via la barre de navigation pour découvrir le contexte, les outils utilisés
@@ -139,5 +148,6 @@
 </footer>
 
 <script src="index.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
