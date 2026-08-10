@@ -61,17 +61,21 @@
             <p>Dataset : Video Game Sales</p>
             <p>Lien : <a href="https://www.kaggle.com/datasets/gregorut/videogamesales">Kaggle</a></p>
             <p>Description : ~16 500 jeux vidéo avec leurs ventes par région et leurs caractéristiques.</p>
-
+            <p>
+                Le projet a été réalisé en python via les bibliothèque Pandas, Matpolit et numpy                <img src="assets/icone/python.png" class="langageUtilise">
+            </p>
             <p>Aperçu du dataset :</p>
             <div class="image-container">
                 <img src="assets/projet1/appercuDataset.png" class="appercu" alt="Aperçu dataset">
             </div>
+            <p>Pour voir la description des différents champs de colonne je vous renvoie vers le lien kaggle ou une descrption du dataset est effectué</p>
 
             <h2>Contexte / Objectif du projet</h2>
             <p>
                 Ce projet consiste à analyser le dataset Video Game Sales (VGSales), un ensemble de données publié en 2016
                 qui recense plus de 16 000 jeux vidéo sortis entre les années 1980 et 2016.
             </p>
+
             <p>
                 L’objectif principal est de réaliser une analyse exploratoire (EDA) afin de mieux comprendre la répartition
                 des jeux, les tendances du marché, les plateformes dominantes et les genres les plus populaires.
@@ -81,17 +85,80 @@
 
             <section class="container text-center mt-5">
                 <div class="tools-line">
-                    <img src="assets/icone/clean.png" class="logo-tech" data-tool="cleaning">
-                    <img src="assets/icone/visualisation.png" class="logo-tech" data-tool="visualisation">
-                    <img src="assets/icone/kpi.png" class="logo-tech" data-tool="kpi">
+                    <img src="assets/icone/clean.png" class="logo-techp1" data-tool="cleaning">
+                    <img src="assets/icone/visualisation.png" class="logo-techp1" data-tool="visualisation">
+                    <img src="assets/icone/kpi.png" class="logo-techp1" data-tool="kpi">
                 </div>
 
-                <div id="tool-description" class="tool-info-global">
+                <div id="tool-description" class="tool-info-global text-center mt-3">
                     Survolez un outil pour voir ce que je fais avec.
                 </div>
             </section>
+        </div>
+    </section>
+    <section id="datacleaning">
+        <div class="contenu-projet">
+         <h1 class="text-center mb-4">1) Partie data cleaning et exploration initial du Dataset</h1>
+        <p>Avant de passer au nettoyage des données, j’ai pris le temps d’examiner le dataset afin d’en comprendre la structure et les particularités. Cette étape préliminaire m’a permis d’identifier les variables clés, de repérer les valeurs manquantes ou incohérentes, et de mieux cerner la logique du jeu de données.
+            Comprendre le dataset avant toute manipulation est essentiel pour garantir la qualité du nettoyage et assurer la fiabilité des analyses à venir.
+        </p>
+            <h4> Exploration initial du dataset</h4>
+            <img src="assets/projet1/codeObservation0.png" class="appercu">
+            <img src="assets/projet1/codeObservation1.png" class="appercu">
+            <img src="assets/projet1/codeObservation2.png" class="appercu">
+            <img src="assets/projet1/codeObservation3.png" class="appercu">
+            <img src="assets/projet1/codeObservation4.png" class="appercu">
+            <H4>Après l'exploration initiale du dataset j'ai pu en conclure : </H4>
+                <ul>
+                    <li>L’exploration initiale du dataset montre que la colonne Publisher contient 58 valeurs manquantes, tandis que la colonne Year en contient 271. Ces valeurs manquantes expliquent pourquoi Year est au format float : les NaN obligent pandas à utiliser un type numérique compatible.</li>
+
+                    <li>Aucune ligne du dataset n’est strictement identique à une autre. Cependant, cette vérification doit être refaite en excluant la colonne Rank, car celle‑ci est unique pour chaque enregistrement et empêcherait la détection de doublons réels.</li>
+
+                    <li>La colonne Publisher contient 58 valeurs manquantes, et la colonne Year en contient 271. Les valeurs manquantes dans Publisher peuvent être remplacées par "Unknown", ce qui est cohérent pour une variable textuelle. En revanche, les valeurs manquantes dans Year doivent rester sous forme de NaN tant que le nettoyage n’est pas terminé.</li>
+
+                    <li> En excluant la colonne Rank (colonne qui est unique) il y a effectivement bien des doublons a traiter lors du nettoyage.</li>
+                    <img src="assets/projet1/codeObservation5.png" class="appercu">
+                </ul>
+
+            <h4> Nettoyage du dataset </h4>
+                <p> Voici les 3 grandes étapes de cette partie nettoyage :</p>
+                <ol>
+                    <li>Suppression des doublons</li>
+                    <li>Remplacement des vides dans Publisher</li>
+                    <li>Conversion de Year en entier</li>
+                </ol>
+
+                <ol>
+                    <li><img src="assets/projet1/codeNettoyage1.png" class="appercu"></li>
+                    <li><img src="assets/projet1/codeNettoyage2.png" class="appercu"></li>
+                    <li><img src="assets/projet1/codeNettoyage3.png" class="appercu"></li>
+                </ol>
 
         </div>
+    </section>
+
+    <section class="visualisation">
+        <div class="contenu-projet">
+            <h4> Data visualisation </h4>
+            <p>Analyse : 4 questions explorées via groupby et agrégations :</p>
+            <ol>
+                <li>Ventes globales par genre</li>
+                <li>Évolution des ventes par décennie</li>
+                <li>Top 10 des plateformes par ventes globales</li>
+                <li>Différences de préférences par genre selon les régions (NA / EU / JP)</li>
+            </ol>
+
+            <ol>
+                <li><img src="assets/projet1/codeVisu1.png" class="appercu"><img src="assets/projet1/visu1.png" class="appercu"></li>
+                <li><img src="assets/projet1/codeVisu2.png" class="appercu"><img src="assets/projet1/visu2.png" class="appercu"></li>
+                <li><img src="assets/projet1/codeVisu3.png" class="appercu"><img src="assets/projet1/visu3.png" class="appercu"></li>
+                <li><img src="assets/projet1/codeVisu4.png" class="appercu"><img src="assets/projet1/visu4.png" class="appercu"></li>
+
+            </ol>
+        </div>
+
+
+
     </section>
 </main>
 

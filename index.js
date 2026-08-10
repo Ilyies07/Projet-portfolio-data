@@ -36,3 +36,23 @@ logos.forEach(logo => {
     });
 });
 
+const descriptionP1 = {
+    cleaning: "Data cleaning : Etape de compréhension du dataset des colonnes des champs des valeurs etc, gestion des valeurs manquantes, correction des types, création de nouvelles colonnes, suppression des doublons.",
+    visualisation: "Data visualisation : barplots et courbes avec Matplotlib/Pandas, ventes globales par genre, évolution des ventes par décennie, top 10 des plateformes, différences régionales par genre (NA / EU / JP).",
+    kpi: "L’étude met en lumière la domination du genre Action, le pic des ventes dans les années 2000 et la position historique de la PS2 comme plateforme la plus vendue."
+};
+
+const logosP1 = document.querySelectorAll(".logo-techp1");
+const descBoxP1 = document.getElementById("tool-description");
+
+logosP1.forEach(logop1 => {
+    const tool = logop1.dataset.tool;
+
+    logop1.addEventListener("mouseover", () => {
+        descBoxP1.textContent = descriptionP1[tool];
+    });
+
+    logop1.addEventListener("mouseout", () => {
+        descBoxP1.textContent = "Survolez un outil pour voir les étapes qui ont été effectué";
+    });
+});

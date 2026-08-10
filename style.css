@@ -27,7 +27,7 @@ nav a:hover {
 }
 
 /*  Section d’accueil */
-h1, h2, h3 {
+h1, h2, h3, h4 {
     font-weight: 600;
     color: #222;
 }
@@ -42,10 +42,26 @@ h2 {
     margin-top: 30px;
 }
 
+h4 {
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
 p {
     font-size: 1.1rem;
     line-height: 1.6;
 }
+
+ol {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+li {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
 
 /*  Ligne des outils */
 .tools-line {
@@ -165,20 +181,6 @@ footer {
     padding: 20px;
 }
 
-
-kdkk
-    /* Conteneur du texte */
-.contenu-projet {
-    max-width: 900px;
-    margin: 40px auto;
-    padding: 30px;
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    text-align: justify;
-    line-height: 1.6;
-}
-
 /* Image centrée */
 .image-container {
     text-align: center;
@@ -191,5 +193,29 @@ kdkk
     max-width: 90%;
     height: auto;
     border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
 
+.langageUtilise {
+        width: 30px;
+        height: auto;
+        cursor: pointer;
+    margin-left: 15px;
+    vertical-align: middle;
+        filter: grayscale(30%);
+        transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+/* pour l'expliquation des logos du projet 1*/
+.logo-techp1 {
+    width: 70px;
+    height: auto;
+    cursor: pointer;
+    filter: grayscale(30%);
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.logo-techp1:hover {
+    transform: scale(1.2);
+    filter: grayscale(0%);
+}
