@@ -85,9 +85,9 @@
 
             <section class="container text-center mt-5">
                 <div class="tools-line">
-                    <img src="assets/icone/clean.png" class="logo-techp1" data-tool="cleaning">
-                    <img src="assets/icone/visualisation.png" class="logo-techp1" data-tool="visualisation">
-                    <img src="assets/icone/kpi.png" class="logo-techp1" data-tool="kpi">
+                    <img src="assets/icone/clean.png" class="logo-techp1" data-tool="cleaning" data-target="cleaning1">
+                    <img src="assets/icone/visualisation.png" class="logo-techp1" data-tool="visualisation" data-target="visualisation1">
+                    <img src="assets/icone/analyse.png" class="logo-techp1" data-tool="kpi" data-target="insight1">
                 </div>
 
                 <div id="tool-description" class="tool-info-global text-center mt-3">
@@ -98,7 +98,7 @@
     </section>
     <section id="datacleaning">
         <div class="contenu-projet">
-         <h1 class="text-center mb-4">1) Partie data cleaning et exploration initial du Dataset</h1>
+         <h1 class="text-center mb-4" id="cleaning1"> 1) Partie data cleaning et exploration initial du Dataset</h1>
         <p>Avant de passer au nettoyage des données, j’ai pris le temps d’examiner le dataset afin d’en comprendre la structure et les particularités. Cette étape préliminaire m’a permis d’identifier les variables clés, de repérer les valeurs manquantes ou incohérentes, et de mieux cerner la logique du jeu de données.
             Comprendre le dataset avant toute manipulation est essentiel pour garantir la qualité du nettoyage et assurer la fiabilité des analyses à venir.
         </p>
@@ -139,7 +139,7 @@
 
     <section class="visualisation">
         <div class="contenu-projet">
-            <h4> Data visualisation </h4>
+            <h1 class="text-center mb-4" id="visualisation1">2) Data visualisation </h1>
             <p>Analyse : 4 questions explorées via groupby et agrégations :</p>
             <ol>
                 <li>Ventes globales par genre</li>
@@ -153,12 +153,49 @@
                 <li><img src="assets/projet1/codeVisu2.png" class="appercu"><img src="assets/projet1/visu2.png" class="appercu"></li>
                 <li><img src="assets/projet1/codeVisu3.png" class="appercu"><img src="assets/projet1/visu3.png" class="appercu"></li>
                 <li><img src="assets/projet1/codeVisu4.png" class="appercu"><img src="assets/projet1/visu4.png" class="appercu"></li>
-
             </ol>
+
+            <p>Ces visualisations permettent de mieux comprendre les dynamiques du marché du jeu vidéo.
+                Elles révèlent des tendances fortes : domination du genre Action, importance des années 2000, rôle central de certaines plateformes et différences culturelles marquées entre les régions.
+                Ces insights constituent la base de la partie KPI qui suit.</p>
         </div>
+        
+    </section>
 
+    <section class="insight&analyse">
+        <div class="contenu-projet">
+            <h1 class="text-center mb-4" id="insight1">3) Résultats clés / Insights </h1>
 
+            <ul>
+                <li>Le genre Action domine largement le marché : avec plus de 1 750 millions d'unités vendues,
+                    il représente environ 20 % des ventes globales, loin devant Sports (~1 300 M) et Shooter (~1 050 M).
+                </li>
+                <li>Le pic des ventes se situe dans les années 2000 : les ventes mondiales ont crû régulièrement des années 1980 jusqu'à atteindre leur maximum dans les années 2000,
+                    avant de décliner. Ce déclin apparent dans les années 2010 et 2020 est à nuancer : le dataset ayant été collecté vers 2016, les données de ces décennies sont incomplètes.
+                </li>
+                <li>La PS2 est la plateforme la plus vendue de l'histoire : avec plus de 1 250 millions d'unités vendues,
+                    elle devance largement la X360 (~980 M) et la PS3 (~960 M).
+                </li>
+                <li>Des préférences régionales très distinctes : l'Amérique du Nord et l'Europe sont dominées par les genres Action et Sports,
+                    tandis que le Japon montre une préférence marquée pour les Role-Playing Games (RPG),
+                    dont les ventes y sont proportionnellement bien plus élevées qu'en NA et EU.
+                </li>
+            </ul>
+        </div>
+    </section>
 
+    <section class="bilan">
+        <div class="contenu-projet">
+            <h1 class="text-center mb-4" id="bilan1">4) Bilan</h1>
+            <p>Ce projet m’a permis de mettre en pratique un ensemble de compétences essentielles en data :</p>
+            <ul>
+                <li>nettoyage et préparation de données (gestion des NaN, doublons, types)</li>
+                <li>manipulation avancée avec Pandas (groupby, agrégations, filtres)</li>
+                <li>visualisations avec Matplotlib</li>
+                <li> interprétation des résultats et formulation d’insights</li>
+                <li>structuration d’un projet analytique clair et documenté</li>
+            </ul>
+        </div>
     </section>
 </main>
 

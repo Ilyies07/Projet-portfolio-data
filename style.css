@@ -197,10 +197,10 @@ footer {
 }
 
 .langageUtilise {
-        width: 30px;
+        width: 50px;
         height: auto;
         cursor: pointer;
-    margin-left: 15px;
+    margin-left: 30px;
     vertical-align: middle;
         filter: grayscale(30%);
         transition: transform 0.3s ease, filter 0.3s ease;

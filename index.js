@@ -53,6 +53,16 @@ logosP1.forEach(logop1 => {
     });
 
     logop1.addEventListener("mouseout", () => {
-        descBoxP1.textContent = "Survolez un outil pour voir les étapes qui ont été effectué";
+        descBoxP1.textContent = "Survolez un outil pour voir les étapes qui ont été effectué ou cliquez sur un outil";
     });
+
+    logop1.addEventListener("click", () => {
+        const targetId = logop1.dataset.target;
+        const targetElement = document.getElementById(targetId);
+
+        if (targetElement) {
+            targetElement.scrollIntoView({ behavior: "smooth" });
+        }
+    });
+
 });
