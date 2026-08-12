@@ -2,9 +2,135 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Projet 2</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Mon portfolio</a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+                aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarScroll">
+            <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" id="projets">
+
+                <li class="nav-item">
+                    <a class="nav-link active" href="projet1.html">Projet 2</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Accueil</a>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                        Mes projets
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="projet1.html">Projet perso 1</a></li>
+                        <li><a class="dropdown-item" href="projet2.html">Projet perso 2</a></li>
+                        <li><a class="dropdown-item" href="projet3.html">Projet perso 3</a></li>
+                        <li><a class="dropdown-item" href="projet4.html">Projet perso 4</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+        </div>
+    </div>
+</nav>
+
+<main>
+
+    <section>
+        <div class="contenu-projet">
+            <h2 class="text-center mb-4">Analyse, nettoyage et modélisation de la base de données des accidents de la route en France (BAAC)</h2>
+
+            <h3>Source des données</h3>
+            <ul>
+                <li>Lien : <a href="https://www.data.gouv.fr/datasets/bases-de-donnees-annuelles-des-accidents-corporels-de-la-circulation-routiere-annees-de-2005-a-2024">www.data.gouv.fr</a></li>
+                <li>Format : CSV / Pandas DataFrame</li>
+                <li>Taille : 23,9MB</li>
+                <li>Objectif du projet : analyser la gravité et la fréquence des accidents selon les conditions de circulation.</li>
+                <li>Feuilles : caracteristiques.csv, lieux.csv, vehicules.csv, usagers.csv</li>
+                <li>Description : Les bases BAAC répertorient l'intégralité des accidents corporels en France métropolitaine et DOM.</li>
+                <li>Le dataset regroupe plus de 53 000 accidents corporels entre 2005 et 2024, avec 58 colonnes décrivant les circonstances.</li>
+                <li>Pour comprendre chaque attribut, se référer au PDF descriptif du dataset (lien ci-dessus).</li>
+                <li>Projet réalisé en Python (Pandas, Matplotlib, Numpy) et SQL (PostgreSQL + SQLite).
+                    <img src="assets/icone/python.png" class="langageUtilise">
+                    <img src="assets/icone/sql-server.png" class="langageUtilise">
+                </li>
+                <li>Aperçu du dataset :</li>
+            </ul>
+
+            <ol>
+                <li>Caractéristiques</li>
+                <li>Lieux</li>
+                <li>Usagers</li>
+                <li>Véhicules</li>
+            </ol>
+
+            <div class="image-container">
+                <ol>
+                    <li><img src="assets/projet2/appercuDataset1.png" class="appercu" alt="Aperçu dataset"></li>
+                    <li><img src="assets/projet2/appercuDataset2.png" class="appercu" alt="Aperçu dataset"></li>
+                    <li><img src="assets/projet2/appercuDataset3.png" class="appercu" alt="Aperçu dataset"></li>
+                    <li><img src="assets/projet2/appercuDataset4.png" class="appercu" alt="Aperçu dataset"></li>
+                </ol>
+            </div>
+
+            <p>Le projet a été séparé en plusieurs étapes :</p>
+
+            <section class="container text-center mt-5">
+                <div class="tools-line">
+                    <img src="assets/icone/clean.png" class="logo-techp2" data-tool="cleaning2" data-target="cleaning2">
+                    <img src="assets/icone/visualisation.png" class="logo-techp2" data-tool="visualisation2" data-target="visualisation2">
+                    <img src="assets/icone/analyse.png" class="logo-techp2" data-tool="insight2" data-target="insight2">
+                </div>
+
+                <div id="tool-description" class="tool-info-global text-center mt-3">
+                    Survolez un outil pour voir ce que je fais avec.
+                </div>
+            </section>
+        </div>
+    </section>
+
+    <!-- SECTION CLEANING -->
+    <section id="cleaning2">
+        <div class="contenu-projet">
+            <h1 class="text-center mb-4">1) Partie data cleaning et exploration initiale du dataset</h1>
+        </div>
+    </section>
+
+    <!-- SECTION VISUALISATION -->
+    <section id="visualisation2">
+        <div class="contenu-projet">
+            <h1 class="text-center mb-4">2) Partie data visualisation</h1>
+        </div>
+    </section>
+
+    <!-- SECTION INSIGHT -->
+    <section id="insight2">
+        <div class="contenu-projet">
+            <h1 class="text-center mb-4">3) Insights et interprétation des visualisations</h1>
+        </div>
+    </section>
+
+</main>
+
+<script src="index.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>
