@@ -103,62 +103,109 @@
                     Survolez un outil pour voir ce que je fais avec.
                 </div>
             </section>
+
+
+                <h1 class="text-center mb-4">1) Partie data cleaning et exploration initiale du dataset</h1>
+
+                <p>
+                    Le dataset BAAC est particulièrement complexe et riche,
+                    contenant plusieurs dizaines de milliers d’accidents et une grande quantité d’informations réparties sur quatre tables distinctes.
+                    Avant de commencer le nettoyage, j’ai pris le temps d’étudier en détail la documentation officielle fournie dans le PDF descriptif du dataset (lien disponible plus haut).
+                    Cette étape était indispensable pour comprendre précisément le rôle de chaque attribut, les valeurs possibles pour chaque colonne et la logique générale de la base.
+                    Une fois cette analyse terminée, j’ai pu aborder le nettoyage de manière structurée, en traitant la base table par table.
+                    J’ai commencé par la table caract, en vérifiant la cohérence des données, en corrigeant les types, en gérant les valeurs manquantes et en identifiant les valeurs aberrantes avant de poursuivre avec les autres tables.
+                </p>
+                <section class="container text-center mt-5">
+                    <div class="tools-line">
+                        <img src="assets/projet2/icone/caracteristique.png" class="logo-techp2" data-target="caract">
+                        <img src="assets/projet2/icone/lieux.png" class="logo-techp2"  data-target="lieux">
+                        <img src="assets/projet2/icone/usagers.png" class="logo-techp2" data-target="usagers">
+                        <img src="assets/projet2/icone/vehicule.png" class="logo-techp2"  data-target="vehicule">
+                    </div>
+                </section>
         </div>
     </section>
-
     <!-- SECTION CLEANING -->
     <section id="cleaning2">
-        <div class="contenu-projet">
-            <h1 class="text-center mb-4">1) Partie data cleaning et exploration initiale du dataset</h1>
-            <p>Le dataset BAAC est particulièrement complexe et riche,
-                contenant plusieurs dizaines de milliers d’accidents et une grande quantité d’informations réparties sur quatre tables distinctes.
-                Avant de commencer le nettoyage, j’ai pris le temps d’étudier en détail la documentation officielle fournie dans le PDF descriptif du dataset (lien disponible plus haut).
-                Cette étape était indispensable pour comprendre précisément le rôle de chaque attribut, les valeurs possibles pour chaque colonne et la logique générale de la base. Une fois cette analyse terminée,
-                j’ai pu aborder le nettoyage de manière structurée, en traitant la base table par table.
-                J’ai commencé par la table caract, en vérifiant la cohérence des données, en corrigeant les types, en gérant les valeurs manquantes et en identifiant les valeurs aberrantes avant de poursuivre avec les autres tables.
-            </p>
-            <h2>Exploration initial de la table Caractéristique</h2>
-            <img src="assets/projet2/caract/chargementdonnée.png" class="appercu">
-            <img src="assets/projet2/caract/codeObservation1.png" class="appercu">
-            <img src="assets/projet2/caract/codeObservation2.png" class="appercu">
-            <img src="assets/projet2/caract/codeObservation3.png" class="appercu">
-            <img src="assets/projet2/caract/codeObservation6.png" class="appercu">
-            <img src="assets/projet2/caract/codeObservation7.png" class="appercu">
 
+        <section id="caract">
+            <div class="contenu-projet">
 
+                <!-- Exploration et nettoyage de la table caractéristique -->
+                <h2>Exploration initiale de la table Caractéristique</h2>
 
-            <H4>Après l'exploration initiale du dataset j'ai pu en conclure : </H4>
-            <ul>
-                <li>Il y a 2310 valeurs manquates dans la colonne adr (adresse qu'on peut remplacer par Unknown (inconnu)</li>
-                <li>Les colonnes codées utilisent -1 comme valeur "non renseigné" dans la nomenclature BAAC (ex. atm, col, lum). Ces valeurs ne correspondent à aucune catégorie valide. On va donc les remplacer par nan (vide)</li>
-                <li>La colonne Publisher contient 58 valeurs manquantes, et la colonne Year en contient 271. Les valeurs manquantes dans Publisher peuvent être remplacées par "Unknown", ce qui est cohérent pour une variable textuelle. En revanche, les valeurs manquantes dans Year doivent rester sous forme de NaN tant que le nettoyage n’est pas terminé.</li>
-                <li>Aucune valeur aberrante détectée en dehors des -1 déjà traités.
-                    Les colonnes dep et com vont etre conservées en texte (str) pour préserver les zéros initiaux.
-                </li>
-                <li>Les colonnes lat et long sont importées en texte (virgule décimale). Elles peuvent etre converties en float après remplacement de la virgule par un point. Les valeurs non convertibles (cellules vides) deviennent automatiquement NaN</li>
-                <li> On peut tranformer certain code en texte nottament dans la colonne lum (lumière)</li>
-            </ul>
-            <h2>Nettoyage de la table Caractéristique</h2>
-            <h4>Etape du nettoyage</h4>
-            <ol>
-                <li>Remplacer les cases vides dans adr (adresse) par Unknown</li>
-                <li>Remplacer les -1 dans atm, col, lum par Nan car la valeur -1 n'est pas dans la documentation pour ces colonnes</li>
-                <li>Convertir la colonne hrmn en datetime.time pour faciliter les analyses par heure</li>
-                <li>Création d'une nouvelle colonne Date à partir des colonnes jour mois an et suppression de ces colonnes</li>
-                <li>Convertir les colonnes lat et long en float après remplacement de la virgule par un point</li>
-                <li>Transformer les codes en texte pour la colonne lum (lumière)</li>
-            </ol>
-            
-            <ol>
-                <li> <img src="assets/projet2/caract/codeNettoyage1.png" class="appercu"></li>
-                <li><img src="assets/projet2/caract/codeNettoyage2.png" class="appercu"></li>
-                <li><img src="assets/projet2/caract/codeNettoyage3.png" class="appercu"></li>
-                <li><img src="assets/projet2/caract/codeNettoyage4.png" class="appercu"></li>
-                <li><img src="assets/projet2/caract/codeNettoyage5.png" class="appercu"></li>
-                <li> <img src="assets/projet2/caract/codeNettoyage6.png" class="appercu"></li>
-            </ol>
-        </div>
+                <img src="assets/projet2/caract/chargementdonnée.png" class="appercu">
+                <img src="assets/projet2/caract/codeObservation1.png" class="appercu">
+                <img src="assets/projet2/caract/codeObservation2.png" class="appercu">
+                <img src="assets/projet2/caract/codeObservation3.png" class="appercu">
+                <img src="assets/projet2/caract/codeObservation6.png" class="appercu">
+                <img src="assets/projet2/caract/codeObservation7.png" class="appercu">
+
+                <h4>Après l'exploration initiale du dataset j'ai pu en conclure :</h4>
+
+                <ul>
+                    <li>Il y a 2310 valeurs manquantes dans la colonne adr (adresse), qu’on peut remplacer par "Unknown".</li>
+                    <li>Les colonnes codées utilisent -1 comme valeur "non renseigné" (atm, col, lum). Ces valeurs ne correspondent à aucune catégorie valide → remplacement par NaN.</li>
+                    <li>La colonne Publisher contient 58 valeurs manquantes, et Year en contient 271. Publisher → "Unknown", Year → NaN.</li>
+                    <li>Aucune valeur aberrante détectée en dehors des -1 déjà traités. Les colonnes dep et com doivent rester en texte pour conserver les zéros initiaux.</li>
+                    <li>Les colonnes lat et long sont importées en texte (virgule décimale). Conversion en float après remplacement de la virgule par un point.</li>
+                    <li>Transformation des codes en texte pour la colonne lum (lumière).</li>
+                </ul>
+
+                <h2>Nettoyage de la table Caractéristique</h2>
+                <h4>Étapes du nettoyage</h4>
+
+                <ol>
+                    <li>Remplacer les cases vides dans adr par "Unknown".</li>
+                    <li>Remplacer les -1 dans atm, col, lum par NaN.</li>
+                    <li>Convertir la colonne hrmn en datetime.time.</li>
+                    <li>Créer une colonne Date à partir de jour, mois, an puis supprimer ces colonnes.</li>
+                    <li>Convertir lat et long en float.</li>
+                    <li>Transformer les codes en texte pour lum.</li>
+                </ol>
+
+                <ol>
+                    <li><img src="assets/projet2/caract/codeNettoyage1.png" class="appercu"></li>
+                    <li><img src="assets/projet2/caract/codeNettoyage2.png" class="appercu"></li>
+                    <li><img src="assets/projet2/caract/codeNettoyage3.png" class="appercu"></li>
+                    <li><img src="assets/projet2/caract/codeNettoyage4.png" class="appercu"></li>
+                    <li><img src="assets/projet2/caract/codeNettoyage5.png" class="appercu"></li>
+                    <li><img src="assets/projet2/caract/codeNettoyage6.png" class="appercu"></li>
+                </ol>
+
+            </div>
+        </section>
+        <section id="lieux">
+            <div class="contenu-projet">
+                <h2>Exploration initiale de la table lieux</h2>
+                <img src="assets/projet2/lieux/codeObservation1.png" class="appercu">
+                <img src="assets/projet2/lieux/codeObservation2.png" class="appercu">
+                <img src="assets/projet2/lieux/codeObservation3.png" class="appercu">
+                <img src="assets/projet2/lieux/codeObservation3.1.png" class="appercu">
+                <img src="assets/projet2/lieux/codeObservation4.png" class="appercu">
+
+                <h4>Après l'exploration initiale du dataset j'ai pu en conclure :</h4>
+                <ul>
+                    <li> Il y a énormément de valeur manquante dans plusieurs colonne : 13331 pour voie, 64332 pour v2, 70215 pour lartcp</li>
+                    <li>Il y a 18 lignes doublées au total</li>
+                    <li>Les doublons correspondent à des lignes strictement identiques pour un même numéro d'accident. Chaque accident ne devant être associé qu'à un seul lieu, ces répétitions traduisent une erreur de saisie ou d'importation. </li>
+                    <li>On constate que la colonne vma (vitesse maximale autorisée) contient des valeurs aberrantes — une valeur maximale à 900 et une valeur minimale à -1 — qui ne sont pas plausibles ; nous les remplacerons par NaN avant toute analyse.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="usagers">
+            <div class="contenu-projet">
+            </div>
+        </section>
+
+        <section id="vehicule">
+            <div class="contenu-projet">
+            </div>
+        </section>
+
     </section>
+
 
     <!-- SECTION VISUALISATION -->
     <section id="visualisation2">
