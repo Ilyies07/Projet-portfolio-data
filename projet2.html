@@ -191,6 +191,24 @@
                     <li>Les doublons correspondent à des lignes strictement identiques pour un même numéro d'accident. Chaque accident ne devant être associé qu'à un seul lieu, ces répétitions traduisent une erreur de saisie ou d'importation. </li>
                     <li>On constate que la colonne vma (vitesse maximale autorisée) contient des valeurs aberrantes — une valeur maximale à 900 et une valeur minimale à -1 — qui ne sont pas plausibles ; nous les remplacerons par NaN avant toute analyse.</li>
                 </ul>
+                <h2>Nettoyage de la table lieux</h2>
+                <h4>Étapes du nettoyage</h4>
+
+                <ol>
+                    <li>Remplacer les cases vides dans voie et v2 par "Unknown" et convertir le champ lartcp en float les cases vides deviendront donc des nan.</li>
+                    <li>Supprimer les doublons.</li>
+                    <li>Remplacer les -1 dans les champs circ, vosp, prof, surf, infra et situ par NaN.</li>
+                    <li>Supprimer les doublons dans la clé primaire Num_Acc.</li>
+                    <li>Remplacer les valeurs aberante dans vma (vitesse maximale autorisé) par NaN pour toutes les valeurs sup 130 et inf 10</li>
+                </ol>
+                <ol>
+                   <li> <img src="assets/projet2/lieux/codeNettoyage1.png" class="appercu"></li>
+                    <li> <img src="assets/projet2/lieux/codeNettoyage2.png" class="appercu"></li>
+                    <li> <img src="assets/projet2/lieux/codeNettoyage3.png" class="appercu"></li>
+                    <li> <img src="assets/projet2/lieux/codeNettoyage4.png" class="appercu"></li>
+                    <li> <img src="assets/projet2/lieux/codeNettoyage5.png" class="appercu"></li>
+                </ol>
+
             </div>
         </section>
 
