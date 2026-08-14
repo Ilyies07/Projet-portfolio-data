@@ -71,6 +71,7 @@
                     <img src="assets/icone/python.png" class="langageUtilise">
                     <img src="assets/icone/sql-server.png" class="langageUtilise">
                 </li>
+                <li>Ce projet a été réalisé le 20 Juin 2026 et finalisé le 16 juillet 2026</li>
                 <li>Aperçu du dataset :</li>
             </ul>
 
@@ -103,11 +104,7 @@
                     Survolez un outil pour voir ce que je fais avec.
                 </div>
             </section>
-
-
-                <h1 class="text-center mb-4">1) Partie data cleaning et exploration initiale du dataset</h1>
-
-                <p>
+                <p >
                     Le dataset BAAC est particulièrement complexe et riche,
                     contenant plusieurs dizaines de milliers d’accidents et une grande quantité d’informations réparties sur quatre tables distinctes.
                     Avant de commencer le nettoyage, j’ai pris le temps d’étudier en détail la documentation officielle fournie dans le PDF descriptif du dataset (lien disponible plus haut).
@@ -127,12 +124,15 @@
     </section>
     <!-- SECTION CLEANING -->
     <section id="cleaning2">
+        <h1 class="text-center mb-4">1) Partie data cleaning et exploration initiale du dataset</h1>
+
 
         <section id="caract">
             <div class="contenu-projet">
 
                 <!-- Exploration et nettoyage de la table caractéristique -->
                 <h2>Exploration initiale de la table Caractéristique</h2>
+                    <p> La rubrique CARACTERISTIQUES décrit les circonstances générales de l’accident </p>
 
                 <img src="assets/projet2/caract/chargementdonnée.png" class="appercu">
                 <img src="assets/projet2/caract/codeObservation1.png" class="appercu">
@@ -178,6 +178,8 @@
         <section id="lieux">
             <div class="contenu-projet">
                 <h2>Exploration initiale de la table lieux</h2>
+                    <p>La rubrique LIEUX qui décrit le lieu principal de l’accident même si celui-ci s’est déroulé à une
+                        intersection</p>
                 <img src="assets/projet2/lieux/codeObservation1.png" class="appercu">
                 <img src="assets/projet2/lieux/codeObservation2.png" class="appercu">
                 <img src="assets/projet2/lieux/codeObservation3.png" class="appercu">
@@ -208,12 +210,48 @@
                     <li> <img src="assets/projet2/lieux/codeNettoyage4.png" class="appercu"></li>
                     <li> <img src="assets/projet2/lieux/codeNettoyage5.png" class="appercu"></li>
                 </ol>
-
             </div>
         </section>
 
         <section id="usagers">
             <div class="contenu-projet">
+                <!-- Exploration et nettoyage de la table usagers -->
+                <h2>Exploration initiale de la table Usagers</h2>
+
+                <img src="assets/projet2/usagers/codeObservation1.png" class="appercu">
+                <img src="assets/projet2/usagers/codeObservation2.png" class="appercu">
+                <img src="assets/projet2/usagers/codeObservation3.png" class="appercu">
+                <img src="assets/projet2/usagers/codeObservation4.png" class="appercu">
+
+                <h4>Après l'exploration initiale du dataset j'ai pu en conclure :</h4>
+
+                <ul>
+                    <li>La table an_naiss peut etre convertit en int et qu'elle comporte également des valeurs aberrantes inférieur à 1900 ou supérieur à 2024 qui seront remplaclés par NaN </li>
+                    <li>La colonne sexe contient des -1 (non renseigné) qui ne correspondent à aucune catégorie valide (1 = Masculin, 2 = Féminin). Ces valeurs doivent etre remplacées par NaN</li>
+                    <li>La colonne place contient également des -1 (non renseigné) à remplacer par NaN</li>
+                    <li>La colonne trajet utilise -1 et 0 comme "non renseigné" dans la nomenclature BAAC. Ces deux codes seront remplacés par NaN pour distinguer les trajets réellement non renseignés des catégories valides (1 à 9)</li>
+                    <li>Il y a des doublons dans la colonne clé primaire Num_Acc qui doivent etre supprimer</li>
+                </ul>
+
+                <h2>Nettoyage de la table lieux</h2>
+                <h4>Étapes du nettoyage</h4>
+                <ol>
+                    <li>Convertir an_naiss en int et remplacer par NaN toutes les valeurs inférieur à 1900 et supérieur à 2024</li>
+                    <li>Remplacer les -1 dans la colonne sexe par NaN</li>
+                    <li>remplacer les -1 dans la colonne place par NaN</li>
+                    <li>Remplacer les -1 et 0 dans la colonne trajet par NaN pour une meilleure lisibilité</li>
+                    <li>Supprimer les doublons dans la clé primaire Num_Acc</li>
+                </ol>
+
+                <ol>
+                    <li> <img src="assets/projet2/usagers/codeNettoyage1.png" class="appercu"></li>
+                    <li> <img src="assets/projet2/usagers/codeNettoyage2.png" class="appercu"></li>
+                    <li> <img src="assets/projet2/usagers/codeNettoyage3.png" class="appercu"></li>
+                    <li> <img src="assets/projet2/usagers/codeNettoyage4.png" class="appercu"></li>
+                    <li> <img src="assets/projet2/usagers/codeNettoyage5.png" class="appercu"></li>
+                </ol>
+
+
             </div>
         </section>
 
@@ -221,7 +259,6 @@
             <div class="contenu-projet">
             </div>
         </section>
-
     </section>
 
 
