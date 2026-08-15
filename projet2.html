@@ -98,6 +98,7 @@
                     <img src="assets/icone/clean.png" class="logo-techp2" data-tool="cleaning2" data-target="cleaning2">
                     <img src="assets/icone/visualisation.png" class="logo-techp2" data-tool="visualisation2" data-target="visualisation2">
                     <img src="assets/icone/analyse.png" class="logo-techp2" data-tool="insight2" data-target="insight2">
+                    <img src="assets/icone/manipulation.png" class="logo-techp2" data-tool="manipdata2" data-target="manipdata2">
                 </div>
 
                 <div id="tool-description" class="tool-info-global text-center mt-3">
@@ -233,7 +234,7 @@
                     <li>Il y a des doublons dans la colonne clé primaire Num_Acc qui doivent etre supprimer</li>
                 </ul>
 
-                <h2>Nettoyage de la table lieux</h2>
+                <h2>Nettoyage de la table usagers</h2>
                 <h4>Étapes du nettoyage</h4>
                 <ol>
                     <li>Convertir an_naiss en int et remplacer par NaN toutes les valeurs inférieur à 1900 et supérieur à 2024</li>
@@ -250,13 +251,45 @@
                     <li> <img src="assets/projet2/usagers/codeNettoyage4.png" class="appercu"></li>
                     <li> <img src="assets/projet2/usagers/codeNettoyage5.png" class="appercu"></li>
                 </ol>
-
-
             </div>
         </section>
 
         <section id="vehicule">
             <div class="contenu-projet">
+                <h2>Exploration initiale de la table vehicule</h2>
+                <img src="assets/projet2/vehicule/codeObservation1.png" class="appercu">
+                <img src="assets/projet2/vehicule/codeObservation2.png" class="appercu">
+                <img src="assets/projet2/vehicule/codeObservation3.png" class="appercu">
+                <img src="assets/projet2/vehicule/codeObservation4.png" class="appercu">
+
+                <h2>Après l'exploration initial de la table vehicule j'ai pu en conclure :</h2>
+                <ol>
+                    <li>Aucun doublon dans la table vehicules. La colonne occutc contient de nombreuses valeurs manquantes (91729): elles sont normales car cette variable ne concerne que les transports en commun, qui représentent une minorité des accidents. On peut cependant convertir occutc en int pour plus de cohéhence</li>
+                    <li>Il y a 38276 doublons dans la colonne et clé primaire Num_Acc qui doivent etre traité</li>
+                    <li>Les colonnes senc et motor utilisent des -1 comme non renseigné, on peut remplacer ces valeurs par NaN pour homogéniser le traitement avec les autres tables</li>
+                </ol>
+
+                <h2>Nettoyage de la table vehicule</h2>
+                <h4>Etape du nettoyage</h4>
+                <ol>
+                    <li>Convertir la colonne occutc en int64 pour plus de cohérence car il s'agit d'un code</li>
+                    <li>Remplacer les -1 comme (non renseigné) par NaN dans les colonnes senc et motor</li>
+                    <li>Remplacer le -1 dans la colonne catv par NaN</li>
+                    <li>Supprimer les doublons dans la colonne Num_Acc (la clé primaire)</li>
+                </ol>
+
+                <ol>
+                     <li> <img src="assets/projet2/vehicule/codeNettoyage1.png" class="appercu"></li>
+                    <li> <img src="assets/projet2/vehicule/codeNettoyage2.png" class="appercu"></li>
+                    <li> <img src="assets/projet2/vehicule/codeNettoyage3.png" class="appercu"></li>
+                    <li> <img src="assets/projet2/vehicule/codeNettoyage4.png" class="appercu"></li>
+                </ol>
+            </div>
+        </section>
+
+        <section id="synthese">
+            <div class="contenu-projet">
+                <h2 class="text-center mb-4">Synthèse du nettoyage</h2>
             </div>
         </section>
     </section>
