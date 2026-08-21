@@ -113,14 +113,7 @@
                     Une fois cette analyse terminée, j’ai pu aborder le nettoyage de manière structurée, en traitant la base table par table.
                     J’ai commencé par la table caract, en vérifiant la cohérence des données, en corrigeant les types, en gérant les valeurs manquantes et en identifiant les valeurs aberrantes avant de poursuivre avec les autres tables.
                 </p>
-                <section class="container text-center mt-5">
-                    <div class="tools-line">
-                        <img src="assets/projet2/icone/caracteristique.png" class="logo-techp2" data-target="caract">
-                        <img src="assets/projet2/icone/lieux.png" class="logo-techp2"  data-target="lieux">
-                        <img src="assets/projet2/icone/usagers.png" class="logo-techp2" data-target="usagers">
-                        <img src="assets/projet2/icone/vehicule.png" class="logo-techp2"  data-target="vehicule">
-                    </div>
-                </section>
+
         </div>
     </section>
     <!-- SECTION CLEANING -->
@@ -130,7 +123,14 @@
 
         <section id="caract">
             <div class="contenu-projet">
-
+                <section class="container text-center mt-5">
+                    <div class="tools-line">
+                        <img src="assets/projet2/icone/caracteristique.png" class="logo-techp2" data-target="caract">
+                        <img src="assets/projet2/icone/lieux.png" class="logo-techp2"  data-target="lieux">
+                        <img src="assets/projet2/icone/usagers.png" class="logo-techp2" data-target="usagers">
+                        <img src="assets/projet2/icone/vehicule.png" class="logo-techp2"  data-target="vehicule">
+                    </div>
+                </section>
                 <!-- Exploration et nettoyage de la table caractéristique -->
                 <h2>Exploration initiale de la table Caractéristique</h2>
                     <p> La rubrique CARACTERISTIQUES décrit les circonstances générales de l’accident </p>
@@ -290,10 +290,29 @@
         <section id="synthese">
             <div class="contenu-projet">
                 <h2 class="text-center mb-4">Récapitulatif du nettoyage</h2>
+                Le nettoyage des données a consisté à uniformiser et fiabiliser les quatre tables du jeu de données.
+                Les valeurs manquantes ou aberrantes ont été remplacées par des indicateurs cohérents (NaN ou "Unknown"),
+                les doublons supprimés, et plusieurs colonnes converties dans des formats adaptés (notamment Int64 et float).
+                Des ajustements spécifiques ont été réalisés selon la nature des tables : création d’une colonne date et conversion des coordonnées dans caract,
+                harmonisation des variables de structure dans lieux, filtrage des anomalies d’âge et de trajet dans usagers,
+                et correction des types pour les véhicules. Ce processus garantit une base propre, homogène et prête pour l’analyse statistique ou la modélisation.
             </div>
+            <img src="assets/projet2/synthese/synthese.png" class="appercu">
+        </section>
 
-            <img src="assets/synthese/synthese.png" class="appercu">
-
+        <section id="liaison">
+            <div class="contenu-projet">
+                    <h2 class="text-center mb-4">Liaison des tables</h2>
+                <p>Ce bloc de code fusionne les différentes tables du jeu de données — caract, lieux, vehicules et usagers — afin de créer un DataFrame unique nommé df.
+                    La jointure se fait principalement sur la clé Num_Acc, identifiant commun à chaque accident,
+                    puis sur id_vehicule pour relier les informations des usagers.
+                    Le mode de fusion choisi (how="left") permet de conserver toutes les lignes du tableau principal même si certaines données associées sont manquantes.
+                    Cette étape centralise l’ensemble des informations nettoyées dans une structure cohérente,
+                    prête pour la phase de visualisation et d’analyse.
+                </p>
+                <img src="assets/projet2/codeliaison.png" class="appercu">
+                <img src="assets/projet2/apperculiaison.png" class="appercu">
+            </div>
         </section>
     </section>
 
