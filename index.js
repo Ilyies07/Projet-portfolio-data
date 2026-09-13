@@ -97,3 +97,36 @@ logosP2.forEach(logop2 => {
     });
 
 });
+
+const descriptionP3 = {
+    cleaning3 : "Data cleaning : Nettoyage complet du dataset avec Power Query, incluant l’analyse des colonnes et des valeurs, la gestion des données manquantes, la correction des types, la suppression des doublons et le traitement des valeurs aberrantes. Mise en place d’un schéma de données propre et cohérent, prêt pour la modélisation et l’analyse des KPI.",
+    manipdata3 : "Manipulation de données : Utilisation du langage DAX pour construire et calculer les KPI essentiels du pilotage de la performance : taux de résolution, délai moyen de traitement (DMT), satisfaction client moyenne, pourcentage de tickets traités sous 24h, nombre total de tickets traités, délai moyen de résolution, etc. Création de mesures dynamiques permettant une analyse fiable et orientée décision.",
+    visualisation3 : "Dashboard : Conception d’un tableau de bord Power BI multi‑pages comprenant une vue d’ensemble, une page Qualité, une page Délai et une page Satisfaction client. Chaque page intègre des KPI dédiés, des filtres interactifs et des visualisations optimisées pour faciliter la prise de décision et offrir une lecture claire de la performance globale.",
+    kpi3 : "Dans ce projet, j’ai assuré le suivi complet des KPI liés à la performance opérationnelle. L’objectif était de analyser plusieurs indicateurs clés issus de différentes familles (qualité, délai, satisfaction, volumétrie) afin de construire une vision globale et exploitable de l’activité. Le travail a consisté à : identifier les KPI pertinents pour le pilotage (taux de résolution, DMT, % traité sous 24h, satisfaction moyenne, volumétrie des tickets, délai moyen de résolution, etc.)"
+};
+
+const logosP3 = document.querySelectorAll(".logo-techp3");
+const descBoxP3 = document.getElementById("tool-description");
+
+logosP3.forEach(logop3 => {
+    const tool = logop3.dataset.tool;
+
+    logop3.addEventListener("mouseover", () => {
+        descBoxP3.textContent = descriptionP3[tool];
+    });
+
+    logop3.addEventListener("mouseout", () => {
+        descBoxP3.textContent = "Survolez un outil pour voir les étapes qui ont été effectué ou cliquez sur un outil";
+    });
+
+    logop3.addEventListener("click", () => {
+        const targetId = logop3.dataset.target;
+        const targetElement = document.getElementById(targetId);
+
+        if (targetElement) {
+            targetElement.scrollIntoView({ behavior: "smooth" });
+        }
+    });
+
+});
+

@@ -1,10 +1,171 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+    <title>Projet 1</title>
 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Mon portfolio</a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+                aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarScroll">
+            <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" id="projets">
+
+                <li class="nav-item">
+                    <a class="nav-link active" href="projet2.html">Projet 3</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Accueil</a>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                        Mes projets
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="projet1.html">Projet perso 1</a></li>
+                        <li><a class="dropdown-item" href="projet2.html">Projet perso 2</a></li>
+                        <li><a class="dropdown-item" href="projet3.html">Projet perso 3</a></li>
+                        <li><a class="dropdown-item" href="projet4.html">Projet perso 4</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+        </div>
+    </div>
+</nav>
+
+<main>
+    <h2 class="text-center mb-4">Analyse, nettoyage et suivi de la performance d'un support client</h2>
+
+    <section id="description">
+        <div class="contenu-projet">
+            <h2>Source des données</h2>
+            <ul>
+                <li>Dataset : Customer Support Ticket Dataset</li>
+                <li>Lien : <a href="https://www.kaggle.com/datasets/suraj520/customer-support-ticket-dataset">Kaggle</a></li>
+                <li>Granularité source : une ligne = un ticket (~8 469 lignes)</li>
+                <li>Format : CSV</li>
+                <li>Table : Customer Support Ticket Dataset.csv</li>
+                <li>
+                    Description : Dashboard Power BI de suivi de la performance d'un support client, autour de 3 familles de KPI : qualité, délai, satisfaction.
+                </li>
+                <li>Le projet a été réalisé en excel et powerBI <img src="assets/icone/excel.png" class="langageUtilise"> <img src="assets/icone/Power-BI.png" class="langageUtilise"></li>
+                <li>Ce projet a été réalisé le 18 juillet 2026 et finalisé le 23 juillet 2026</li>
+                <li>Colonnes d'origine (anglais) : Ticket ID, Customer Name, Customer Email, Customer Age, Customer Gender, Product Purchased, Date of Purchase, Ticket Type, Ticket Subject, Ticket Description, Ticket Status, Resolution, Ticket Priority, Ticket Channel, First Response Time, Time to Resolution, Customer Satisfaction Rating</li>
+                <li>Aperçu du dataset :</li>
+                <div class="image-container">
+                    <img src="assets/projet3/appercudataset.png" class="appercu" alt="Aperçu dataset">
+                    <img src="assets/projet3/appercudataset2.png" class="appercu" alt="Aperçu dataset">
+                </div>
+            </ul>
+            <p>Pour voir la description des différents champs de colonne je vous renvoie vers le lien kaggle ou une descrption du dataset est effectué</p>
+
+            <h2>Contexte / Objectif du projet</h2>
+            <p>
+                Ce projet avait avant tout pour objectif de mettre en pratique les apprentissages que je venais d’acquérir,
+                puisque je sortais tout juste d’une formation intensive de 30 jours en Power BI.
+                Il s’agissait donc de mon premier projet complet mêlant Power Query, modélisation, construction de KPI et création d’un dashboard multi‑pages.
+            </p>
+
+            <p>
+                L’objectif principal était d’analyser plusieurs familles de KPI et de concevoir un tableau de bord permettant de suivre la performance de différents prestataires.
+                Ce travail m’a permis de reproduire les étapes clés d’un véritable poste orienté pilotage de la performance / reporting BI :
+            </p>
+
+            <ul>
+                <li>
+                    Nettoyage d’une donnée source imparfaite, avec Power Query, en appliquant les bonnes pratiques vues en formation (gestion des types, normalisation, suppression des doublons, correction des anomalies).
+                </li>
+
+                <li>
+                    Création d’un dashboard multi‑pages, structuré autour de KPI décisionnels, avec un design plus abouti et professionnel que celui de mon premier projet.
+                </li>
+
+                <li>
+                    Mise en place de mesures DAX, indispensables pour le calcul de taux, d’indicateurs de performance et d’agrégations dynamiques.
+                </li>
+            </ul>
+
+            <p>
+                Ce projet m’a également permis de consolider mon utilisation de Power Query, en appliquant concrètement les transformations apprises durant ma formation, et de comprendre comment les intégrer dans un pipeline complet allant du nettoyage à la visualisation.
+            </p>
+
+            <p>Au global, ce projet constitue une première expérience concrète et complète en Business Intelligence, combinant :</p>
+
+            <ul>
+                <li>Nettoyage de données</li>
+                <li>Modélisation</li>
+                <li>Analyse de KPI</li>
+                <li>Visualisation</li>
+                <li>Mise en place d'un dashboard professionnel</li>
+            </ul>
+
+            <p>Le projet a été séparé en plusieurs étapes :</p>
+
+            <section class="container text-center mt-5">
+                <div class="tools-line">
+                    <img src="assets/icone/clean.png" class="logo-techp3" data-tool="cleaning3" data-target="datacleaning3">
+                    <img src="assets/icone/visualisation.png" class="logo-techp3" data-tool="manipdata3" data-target="manipdata3">
+                    <img src="assets/icone/manipulation.png"  class="logo-techp3" data-tool="visualisation3" data-target="visualisation3">
+                    <img src="assets/icone/kpi.png"  class="logo-techp3" data-tool="kpi3" data-target="visualisation3">
+                </div>
+
+                <div id="tool-description" class="tool-info-global text-center mt-3">
+                    Survolez un outil pour voir ce que je fais avec.
+                </div>
+            </section>
+
+        </div>
+    </section>
+
+    <section>
+        <div class="contenu-projet">
+            <h1 class="text-center mb-4" id="datacleaning3"> 1) Partie data cleaning et exploration initial du Dataset</h1>
+        </div>
+    </section>
+
+    <section>
+        <div class="contenu-projet">
+            <h1 class="text-center mb-4" id="manipdata3">2) Manipulation de données </h1>
+        </div>
+    </section>
+
+    <section>
+        <div class="contenu-projet">
+            <h1 class="text-center mb-4" id="visualisation3">3) Dashboard </h1>
+        </div>
+    </section>
+
+    <section class="bilan">
+        <div class="contenu-projet">
+            <h1 class="text-center mb-4" id="bilan1">4) Bilan</h1>
+        </div>
+    </section>
+
+</main>
+
+<script src="index.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<footer>
+    <p>Portfolio data Lerhzal Ilyies</p>
+    <p>Etudiant en BUT informatique à IUT de Paris - Rives de Seine | Université Paris Cité</p>
+</footer>
 </body>
 </html>
