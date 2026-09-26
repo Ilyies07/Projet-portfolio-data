@@ -138,6 +138,56 @@
     <section>
         <div class="contenu-projet">
             <h1 class="text-center mb-4" id="datacleaning3"> 1) Partie data cleaning et exploration initial du Dataset</h1>
+
+
+
+            <h3>Nettoyage complet du dataset avec Power Query</h3>
+
+            <p>
+                Le dataset a été entièrement nettoyé et préparé dans Power Query, en suivant une démarche structurée permettant d’obtenir une base de données cohérente, fiable et directement exploitable pour la modélisation et l’analyse des KPI.
+                Ce travail a inclus l’analyse des colonnes, la gestion des données manquantes, la correction des types, la suppression des doublons et le traitement des valeurs aberrantes.
+            </p>
+
+            <p>J'ai séparé ce nettoyage en plusieurs étapes :</p>
+
+            <ol>
+                <li>
+                    <strong>Renommage et harmonisation des colonnes</strong><br>
+                    Toutes les colonnes ont été renommées pour obtenir des libellés clairs, homogènes et en français, facilitant la lecture et la compréhension du dataset.
+                    <br><br>
+                    <img src="assets/projet3/nettoyage/renommage.png" class="appercu" alt="Aperçu dataset">
+                </li>
+
+                <li>
+                    <strong>Renommage des valeurs grâce au langage M</strong><br>
+                    Pour uniformiser les valeurs textuelles, j’ai utilisé plusieurs fonctions du langage M, ce qui m’a permis d’automatiser les remplacements et d’harmoniser les données.
+                    Voici quelques exemples :
+                    <pre>
+= Table.ReplaceValue(#"Valeur remplacée","Male","Homme",Replacer.ReplaceText,{"Sexe du client"})
+            </pre>
+                    <pre>
+= Table.ReplaceValue(#"Valeur remplacée11","High ","Élevée",Replacer.ReplaceText,{"Priorité du ticket"})
+            </pre>
+                    <pre>
+= Table.ReplaceValue(#"Valeur remplacée16","Product recommendation","Recommandation du produit",Replacer.ReplaceText,{"Sujet du ticket"})
+            </pre>
+                    <pre>
+= Table.ReplaceValue(#"Valeur remplacée2","Cancellation request","Demande d'annulation",Replacer.ReplaceText,{"Type de ticket"})
+            </pre>
+                    <pre>
+= Table.ReplaceValue(#"Valeur remplacée9","Closed","Fermé",Replacer.ReplaceText,{"Statut du ticket"})
+            </pre>
+                </li>
+
+                <li>
+                    <strong>Correction des types, suppression des doublons et harmonisation</strong><br>
+                    Conversion des colonnes numériques, dates et textes dans les bons formats, suppression des doublons dans <em>ID Ticket</em> pour garantir l’unicité des enregistrements, et harmonisation des valeurs incohérentes.
+                </li>
+            </ol>
+
+            <p>
+                Le dataset étant globalement propre à l’origine, cette phase de nettoyage a été rapide comparée à d’autres projets plus complexes que j’ai pu réaliser. Elle reste néanmoins essentielle pour garantir une base solide avant la modélisation et la création des KPI.
+            </p>
         </div>
     </section>
 
