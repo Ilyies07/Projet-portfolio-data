@@ -183,10 +183,16 @@
                     <strong>Correction des types, suppression des doublons et harmonisation</strong><br>
                     Conversion des colonnes numériques, dates et textes dans les bons formats, suppression des doublons dans <em>ID Ticket</em> pour garantir l’unicité des enregistrements, et harmonisation des valeurs incohérentes.
                 </li>
+
+                <li>Création d’un modèle en étoile permettant de transformer un dataset brut en une structure analytique claire et cohérente, articulée autour de la table Faits_Tickets et des dimensions Client, Date et Produit.
+                    <img src="assets/projet3/modelisation.png" class="appercu" alt="Aperçu dataset">
+
+                </li>
             </ol>
 
             <p>
                 Le dataset étant globalement propre à l’origine, cette phase de nettoyage a été rapide comparée à d’autres projets plus complexes que j’ai pu réaliser. Elle reste néanmoins essentielle pour garantir une base solide avant la modélisation et la création des KPI.
+
             </p>
         </div>
     </section>
@@ -194,18 +200,161 @@
     <section>
         <div class="contenu-projet">
             <h1 class="text-center mb-4" id="manipdata3">2) Manipulation de données </h1>
+            <p>
+                Pour la partie dédiée à la manipulation et à l’analyse des données, j’ai utilisé le langage <strong>DAX</strong> afin de construire différents indicateurs clés (KPI).
+                Ces mesures m’ont permis de réaliser un tableau de bord complet et dynamique, offrant une vision claire de la performance du support client.
+            </p>
+
+            <p>
+                Le langage DAX a été essentiel pour créer des métriques fiables, automatisées et adaptées aux besoins du projet : calculs de taux, moyennes, ratios, temps de traitement, suivi de la résolution des tickets, etc.
+                Grâce à ces mesures, j’ai pu structurer un dashboard capable de mettre en évidence les tendances, les points d’amélioration et les comportements récurrents dans les données.
+            </p>
+
+            <p>Voici des exemples de différentes mesures de KPI que j'ai pu effectuer :</p>
+
+            <pre>  Taux de résolution =
+DIVIDE(
+    CALCULATE(COUNTROWS(Fait_Tickets), Fait_Tickets[Statut du ticket] = "Fermé"),
+    COUNTROWS(Fait_Tickets)
+)</pre>
+
+            <pre>  % traité sous 24h =
+VAR TicketsResolus =
+    FILTER(
+        Fait_Tickets,
+        NOT(ISBLANK(Fait_Tickets[Heure de résolution]))
+        && Fait_Tickets[Heure de résolution] >= Fait_Tickets[Heure de première réponse]
+    )
+RETURN
+DIVIDE(
+    COUNTROWS(
+        FILTER(
+            TicketsResolus,
+            DATEDIFF(Fait_Tickets[Heure de première réponse], Fait_Tickets[Heure de résolution], HOUR) <= 24
+        )
+    ),
+    COUNTROWS(TicketsResolus)
+)</pre>
+
+            <pre>  Délai moyen de résolution (h) =
+AVERAGEX(
+    FILTER(
+        Fait_Tickets,
+        NOT(ISBLANK(Fait_Tickets[Heure de résolution]))
+        && Fait_Tickets[Heure de résolution] >= Fait_Tickets[Heure de première réponse]
+    ),
+    DATEDIFF(Fait_Tickets[Heure de première réponse], Fait_Tickets[Heure de résolution], HOUR)
+)</pre>
+
+            <pre>  Nombre de tickets ouverts =
+CALCULATE(
+    DISTINCTCOUNT(Fait_Tickets[Identifiant du ticket]),
+    Fait_Tickets[Statut du ticket] = "Ouvert"
+)</pre>
+
+            <pre>  Note moyenne de satisfaction client = AVERAGE(Fait_Tickets[Note de satisfaction client])</pre>
+
+            <pre>  Nombre de ticket ayant une note sup 2 =
+CALCULATE(
+    DISTINCTCOUNT(Fait_Tickets[Identifiant du ticket]),
+    Fait_Tickets[Note de satisfaction client] > 2
+)</pre>
+
+            <pre>  Nombre ticket priorité critique ou haute =
+CALCULATE(
+    DISTINCTCOUNT(Fait_Tickets[Identifiant du ticket]),
+    Fait_Tickets[Priorité du ticket] IN {"Critique", "Haute"}
+)</pre>
+
+            <h3> Bilan de la manipulation de données</h3>
+
+            <p>
+                Cette phase de manipulation de données m’a permis de mettre en pratique l’ensemble des concepts fondamentaux du langage <strong>DAX</strong> : création de mesures, gestion du contexte de filtre, utilisation de fonctions d’agrégation, calculs conditionnels et analyse temporelle.
+                Grâce à ces différents KPI, j’ai pu construire une base analytique solide, capable de répondre aux besoins du tableau de bord et d’offrir une vision précise de la performance du support client.
+            </p>
+
+            <p>
+                Les mesures développées ont permis d’évaluer la qualité du service, d’identifier les tendances clés et de détecter les axes d’amélioration.
+                Cette étape a également renforcé ma maîtrise de Power BI, notamment dans la modélisation des données, la logique DAX et la structuration d’indicateurs pertinents pour un cas métier réel.
+            </p>
+
+            <p>
+                En résumé, cette partie du projet a été essentielle pour transformer un dataset brut en un ensemble d’informations exploitables, fiables et directement utilisables dans la construction du dashboard final.
+            </p>
         </div>
     </section>
 
     <section>
         <div class="contenu-projet">
             <h1 class="text-center mb-4" id="visualisation3">3) Dashboard </h1>
+            <p>
+                Après le nettoyage du dataset, la modélisation en étoile et la création des différents KPI grâce au langage DAX, vient l’étape essentielle de l’élaboration du <strong>dashboard interactif</strong>.
+                Cette phase permet de transformer l’ensemble du travail préparatoire en une interface visuelle claire, dynamique et exploitable en temps réel pour analyser la performance du support client.
+            </p>
+
+            <p>
+                L’objectif du dashboard est de rendre les indicateurs accessibles, compréhensibles et actionnables.
+                Grâce aux filtres, aux visualisations adaptées et à la structure multi‑pages, il devient possible d’explorer les données sous différents angles : qualité du traitement, délais de résolution, satisfaction client, volumétrie des tickets, et bien plus encore.
+            </p>
+
+            <p>
+                Ce tableau de bord constitue la partie finale du projet, celle qui permet de donner du sens aux données et d’offrir une vue d’ensemble complète du fonctionnement du support client.
+                Il sert d’outil d’aide à la décision, permettant d’identifier rapidement les points forts, les axes d’amélioration et les tendances clés.
+            </p>
+
+            <p>
+                J'ai séparé mon dashboard en plusieurs pages, chacune dédiée à une famille spécifique de KPI.
+                Cette organisation permet d’analyser les données de manière plus claire et plus ciblée, en isolant les indicateurs liés à la qualité, aux délais, à la satisfaction client ou encore à la volumétrie des tickets.
+                Cette structure multi‑pages facilite la navigation et offre une lecture plus intuitive de la performance globale du support client.
+            </p>
+
+            <ol>
+                <li> <img src="assets/projet3/pagesDashboard/Page%20n°1%20Vue%20d'ensemble.png" class="appercu"></li>
+                <li>
+                      <img src="assets/projet3/pagesDashboard/Page%20n°2%20Qualité.png" class="appercu">
+                     <img src="assets/projet3/pagesDashboard/Page%20n°2.1%20Qualité.png" class="appercu">
+                </li>
+                <li> <img src="assets/projet3/pagesDashboard/Page%20n°3%20Délai.png" class="appercu">
+                </li>
+                <li> <img src="assets/projet3/pagesDashboard/Page%20n°4%20Satisfaction%20client.png" class="appercu"></li>
+            </ol>
         </div>
     </section>
 
     <section class="bilan">
         <div class="contenu-projet">
             <h1 class="text-center mb-4" id="bilan1">4) Bilan</h1>
+            <p>
+                Ce projet m’a permis de parcourir l’ensemble du cycle de traitement et d’analyse de données dans Power BI, depuis l’exploration du dataset brut jusqu’à la création d’un tableau de bord interactif complet.
+                Chaque étape a joué un rôle essentiel dans la construction d’une solution analytique fiable, structurée et orientée métier.
+            </p>
+
+            <p>
+                La phase de <strong>nettoyage</strong> a permis d’obtenir un dataset propre et cohérent grâce au renommage des colonnes, à l’harmonisation des valeurs via le langage M, à la correction des types et à la suppression des doublons.
+                Même si le fichier était globalement bien structuré, ce travail a été indispensable pour garantir la qualité des analyses futures.
+            </p>
+
+            <p>
+                La <strong>modélisation en étoile</strong> a ensuite apporté une structure analytique claire, articulée autour d’une table de faits et de trois dimensions.
+                Ce modèle a facilité la création des relations, la compréhension des données et l’optimisation des calculs DAX.
+            </p>
+
+            <p>
+                La partie <strong>manipulation de données</strong> m’a permis de mettre en pratique les concepts fondamentaux du langage DAX : création de mesures, gestion du contexte de filtre, calculs conditionnels, agrégations et analyse temporelle.
+                Les KPI développés ont offert une vision précise de la performance du support client et ont servi de base solide pour la construction du dashboard.
+            </p>
+
+            <p>
+                Enfin, la création du <strong>dashboard interactif</strong> a transformé l’ensemble du travail préparatoire en une interface visuelle claire, dynamique et exploitable.
+                Organisé en plusieurs pages thématiques, il permet d’explorer les données sous différents angles : qualité, délais, satisfaction client et volumétrie des tickets.
+                Ce tableau de bord constitue un véritable outil d’aide à la décision, capable de mettre en évidence les tendances clés et les axes d’amélioration.
+            </p>
+
+            <p>
+                En résumé, ce projet m’a permis de renforcer mes compétences en <strong>Power Query</strong>, <strong>modélisation de données</strong>, <strong>DAX</strong> et <strong>visualisation</strong>.
+                Il illustre ma capacité à transformer un dataset brut en une solution analytique complète, structurée et orientée métier — une compétence essentielle dans les domaines de la data et de la business intelligence.
+            </p>
+
         </div>
     </section>
 
